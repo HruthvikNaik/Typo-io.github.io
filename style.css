@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+h1{
+  text-align: justify;
+}
 body{
   display: flex;
   padding: 0 10px;
@@ -201,4 +204,40 @@ li:not(:first-child) span{
   .content button{
     margin-top: 10px;
   }
+}
+
+.footer {
+  position: fixed;
+  padding: 20px 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+a{
+  margin-right: 30px;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
