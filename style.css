@@ -1,21 +1,18 @@
-*{
-    box-sizing: border-box;
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    animation: changeBg 10s linear infinite;
+body{
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  animation: changeBg 10s linear infinite;
 }
 @keyframes changeBg {
     0% {
@@ -37,165 +34,171 @@ body {
         background-color: #1E0550;
     }
 }
-body, .quote-input {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+::selection{
+  color: #fff;
+  background: #17A2B8;
 }
-.container, .content-box{
-    background-color:rgb(22, 233, 198);
-    padding: 45px 45px 45px;
-    border-radius: 5px;
-    
-    border: 1px solid;
-    resize: none;
-    overflow-y: auto;
+.wrapper{
+  width: 770px;
+  padding: 35px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
 }
-
-
-
-.quote-display {
-    margin-bottom: 1rem;
-    margin-left: calc(1rem + 2px);
-    margin-right: calc(1rem + 2px);
-    font-size: 2rem;
-    word-break: break-all;
+.wrapper .input-field{
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
 }
-
-.quote-input, textarea {
-    background-color: transparent;
-    border: 2px solid #a1922e;
-    outline: none;
-    width: 100%;
-    height: 59px;
-    margin: auto;
-    padding: 15px;
-    font-size: 2rem;
-    border-radius: 5px;
-    resize: none;
-    letter-spacing: 1px;
+.wrapper .content-box{
+  padding: 13px 20px 0;
+  border-radius: 10px;
+  border: 1px solid #bfbfbf;
 }
-
-.quote-input::-webkit-scrollbar{
-    width: 0px;
+.content-box .typing-text{
+  overflow: hidden;
+  max-height: 256px;
 }
-
-.quote-input:focus {
-    border-color: black;
-    border-width: 2.5px;
-    
+.typing-text::-webkit-scrollbar{
+  width: 0;
 }
-
-.correct {
-    color : rgb(191, 255, 191);
+.typing-text p{
+  font-size: 21px;
+  text-align: justify;
+  letter-spacing: 1px;
+  word-break: break-all;
 }
-
-.incorrect {
-    color: red;
-    
-
+.typing-text p span{
+  position: relative;
 }
-audio {
-    align-items: flex-end;
-    position: absolute;
-   
-    bottom: 10px;
-    width: 50;
-    
-
-
+.typing-text p span.correct{
+  color: #56964f;
 }
-
-.music {
-    align-items: flex-end;
-    position: absolute;
-    color: red;
-    font-size: 2rem;
-    bottom: 40px;
-    width: 50;
-    
+.typing-text p span.incorrect{
+  color: #cb3439;
+  outline: 1px solid #fff;
+  background: #ffc0cb;
+  border-radius: 4px;
 }
-
-.Typo {
-    align-items: flex-end;
-    position: absolute;
-    color: red;
-    font-size: 3rem;
-    top: 10px;
-    width: 50;
-    font-family: 'Courier New', monospace;
-    background: linear-gradient(90deg, #ff0000, #f597d9, #58db37, #0033ff, #ff00c4, #ff0000);
-    background-size: 400px;
-    letter-spacing: 5px;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: animate 10s linear infinite;
+.typing-text p span.active{
+  color: #17A2B8;
 }
-
-@keyframes animate {
-    0%{
-        background-position: 0%;
-    }
-    100%{
-        background-position: 400%;
-    }
+.typing-text p span.active::before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  border-radius: 5px;
+  background: #17A2B8;
+  animation: blink 1s ease-in-out infinite;
 }
-textarea { resize: both; }
-
-.result-details {
-    justify-content: space-between;
-    border-top: 1px solid;
-    padding: 10px;
+@keyframes blink{
+  50%{ 
+    opacity: 1; 
+  }
+}
+.content-box .content{
+  margin-top: 17px;
+  display: flex;
+  padding: 12px 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #bfbfbf;
+}
+.content button{
+  outline: none;
+  border: none;
+  width: 105px;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #17A2B8;
+  transition: transform 0.3s ease;
+}
+.content button:active{
+  transform: scale(0.97);
+}
+.content .result-details{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: calc(100% - 140px);
+  justify-content: space-between;
 }
 .result-details li{
-    list-style: none;
-    align-items: center;
-    display: flex;
-    padding-top: 15px;
-    
+  display: flex;
+  height: 20px;
+  list-style: none;
+  position: relative;
+  align-items: center;
+}
+.result-details li:not(:first-child){
+  padding-left: 22px;
+  border-left: 1px solid #bfbfbf;
 }
 .result-details li p{
-    font-size: 19px;
+  font-size: 19px;
 }
-
-.result-details li:not(:first-child){
-    border-left: 1px solid;
-    padding-left: 22px;
-    
-}
- 
-.content-box, .result-details {
-    display: flex;
-    justify-content: space-between;
-    
-}
-
 .result-details li span{
-    display: block;
-    font-size: 20px;
-    margin-left: 10px;
+  display: block;
+  font-size: 20px;
+  margin-left: 10px;
 }
-
-.result-details li b{
-    font-weight:  1000;
+li span b{
+  font-weight: 500;
 }
-
-.result-details li:not(:first-child) span{
-    font-weight: 1000;
+li:not(:first-child) span{
+  font-weight: 500;
 }
-
-.butt {
-    border: none;
-    outline: none;
+@media (max-width: 745px) {
+  .wrapper{
+    padding: 20px;
+  }
+  .content-box .content{
+    padding: 20px 0;
+  }
+  .content-box .typing-text{
+    max-height: 100%;
+  }
+  .typing-text p{
+    font-size: 19px;
+    text-align: left;
+  }
+  .content button{
     width: 100%;
-    padding-top: 22px;
-    padding: auto;
-    justify-content: flex-end;
-}
-button {
-    padding: 22px;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+  .content .result-details{
     width: 100%;
-    border:1px solid gray;
-   
-    font-size:0.875;
-    
+  }
+  .result-details li:not(:first-child){
+    border-left: 0;
+    padding: 0;
+  }
+  .result-details li p, 
+  .result-details li span{
+    font-size: 17px;
+  }
 }
-
+@media (max-width: 518px) {
+  .wrapper .content-box{
+    padding: 10px 15px 0;
+  }
+  .typing-text p{
+    font-size: 18px;
+  }
+  .result-details li{
+    margin-bottom: 10px;
+  }
+  .content button{
+    margin-top: 10px;
+  }
+}
